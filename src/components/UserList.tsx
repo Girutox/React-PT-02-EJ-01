@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { User } from './User.d';
 import './UserList.scss';
 
@@ -8,6 +9,8 @@ interface Props {
 }
 
 const UserList = ({ data, showRowColors, onDelete }: Props) => {
+  console.log('USER LIST rendered!!!!');  
+
   const tableClasses = showRowColors ? 'table-color-alternate' : '';
 
   return <table
@@ -50,4 +53,4 @@ const UserList = ({ data, showRowColors, onDelete }: Props) => {
   </table>;
 };
 
-export default UserList;
+export default memo(UserList);
