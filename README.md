@@ -14,5 +14,5 @@ Los pasos a seguir:
 - [X] Implement a feature that allows the user to restore the initial state, meaning that all deleted rows will be recovered.
 - [X] Handle any potential errors that may occur.
 - [X] Implement a feature that allows the user to filter the data by country.
-- [] Avoid sorting users again the data when the user is changing filter by country.
+- [X] Avoid sorting users again the data when the user is changing filter by country.
 - [] Sort by clicking on the column header.

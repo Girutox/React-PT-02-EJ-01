@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useMemo } from 'react';
+import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import UserList from './UserList';
 import { User } from './User.d';
 
@@ -30,9 +30,9 @@ const User = () => {
     setSortByCountry(!sortByCountry);
   };
 
-  const deleteHandler = (id: string) => {
+  const deleteHandler = useCallback((id: string) => {
     setUsers(users.filter(item => item.login.uuid !== id));
-  };
+  }, [users]);
 
   const resetStateHandler = () => {
     setUsers(originalUsers.current);
