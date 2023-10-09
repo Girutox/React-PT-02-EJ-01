@@ -1,14 +1,15 @@
 import { memo } from 'react';
-import { User } from './User.d';
+import { Sorting, User } from './User.d';
 import './UserList.scss';
 
 interface Props {
   data: User[],
   showRowColors: boolean,
-  onDelete: (id: string) => void
+  onDelete: (id: string) => void,
+  onSort: (column: Sorting) => void
 }
 
-const UserList = ({ data, showRowColors, onDelete }: Props) => {
+const UserList = ({ data, showRowColors, onDelete, onSort }: Props) => {
   console.log('USER LIST rendered!!!!');  
 
   const tableClasses = showRowColors ? 'table-color-alternate' : '';
@@ -17,11 +18,11 @@ const UserList = ({ data, showRowColors, onDelete }: Props) => {
           style={{ width: '100%', marginTop: '30px' }}
           className={tableClasses}>
     <thead>
-      <tr>
+      <tr className='header-actions'>
         <th>Foto</th>
-        <th>Nombre</th>
-        <th>Apellido</th>
-        <th>País</th>
+        <th onClick={onSort.bind(null, Sorting.NAME)}>Nombre</th>
+        <th onClick={onSort.bind(null, Sorting.LAST)}>Apellido</th>
+        <th onClick={onSort.bind(null, Sorting.COUNTRY)}>País</th>
         <th>Acciones</th>
       </tr>
     </thead>

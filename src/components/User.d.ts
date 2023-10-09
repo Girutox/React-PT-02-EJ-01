@@ -102,3 +102,10 @@ export interface Picture {
   medium:    string;
   thumbnail: string;
 }
+
+export enum Sorting {
+  'NONE' = 0,
+  'NAME' = 1,
+  'LAST' = 2,
+  'COUNTRY' = 3
+}
